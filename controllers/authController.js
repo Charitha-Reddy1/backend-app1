@@ -26,7 +26,11 @@ const registerUser = async (req, res) => {
   const body = req.body;
   const hashedPassword = await bcrypt.hash(body.password, 10);
   body.password = hashedPassword;
-  await userModel.create(body);
+  await userModel.create({
+    ...body,
+    password: hashedPassword,
+    role: "admin"
+  });
   res.redirect("/auth/login");
 };
 
