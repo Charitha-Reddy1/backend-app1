@@ -1,4 +1,4 @@
-import orderModel from "../models/orderModel"
+import orderModel from "../models/orderModel.js"
 
 const placeOrder=async (req,res)=>{
     const order = req.body;

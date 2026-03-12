@@ -6,6 +6,6 @@ const orderSchema = mongoose.Schema({
   imageUrl: { type: String },
   status:{type:String, default:'pending'},
 });
-const orderModel = mongoose.model("products", orderSchema);
+const orderModel = mongoose.model("orders", orderSchema);
 export default orderModel;
 
