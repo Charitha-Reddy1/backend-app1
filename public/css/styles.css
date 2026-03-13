@@ -1,32 +1,35 @@
 *{
     margin:0px
 }
-.header{
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(4,95,10);
-    color:white;
-    padding:10px
-}
 
-.header li{
-    display: inline-block;
-    padding: 5px;
-    font-size: 20px;
-}
-.footer{
-    background-color: silver;
-    padding: 5px;
-}
 .row {
     display: flex;
-    /* justify-content: space-around; */
     flex-wrap: wrap;
 }
-.box{
+
+.box {
     margin: 5px;
-    padding: 5px;
-    border:1px solid gray;
+    padding: 10px;
+    border: 1px solid gray;
     border-radius: 5px;
-    
+    background-color: white;
+    width: 320px;
+    height: 420px;      /* FIXED CARD HEIGHT */
+}
+
+.img{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.img img{
+    width:200px;
+    height:200px;
+    object-fit:cover;
+}
+
+.box p{
+    height:40px;        /* FIX DESCRIPTION HEIGHT */
+    overflow:hidden;    /* hide extra text */
 }
