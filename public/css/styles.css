@@ -23,16 +23,9 @@
     /* justify-content: space-around; */
     flex-wrap: wrap;
 }
-.box {
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: white;
-    width: 320px;   /* fixed width */
-}
 
-.img{
+
+.box{
 
     margin: 5px;
     padding: 10px;
@@ -40,6 +33,6 @@
     border-radius: 5px;
     background-color: white;
     width: 320px;
-    height: 420px;   /* fixed box height */
+    height: 340px;   /* fixed box height */
 
 }
