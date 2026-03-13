@@ -1,5 +1,7 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcrypt";
+
+
 const login = async (req, res) => {
   res.render("auth/login");
 };
@@ -45,7 +47,11 @@ const signin = async (req, res) => {
   if(user){
     const isMatch=await bcrypt.compare(password,user.password)
     if(isMatch){
-      res.json(user)
+      const userObj{
+      name:user.name,
+      email:user.email,
+      role:user.role,
+      }
     }
     else{
       res.json({error:"Invalid Password"});
