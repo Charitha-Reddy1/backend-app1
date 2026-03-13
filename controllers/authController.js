@@ -1,10 +1,14 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"
 
+const SECRET="mysecret"
 
 const login = async (req, res) => {
   res.render("auth/login");
 };
+
+
 const validateUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await userModel.findOne({ email, role: "admin" });
@@ -20,6 +24,8 @@ const validateUser = async (req, res) => {
     res.redirect("/auth/login");
   }
 };
+
+
 const register = async (req, res) => {
   res.render("auth/register");
 };
@@ -27,7 +33,6 @@ const register = async (req, res) => {
 const registerUser = async (req, res) => {
   const body = req.body;
   const hashedPassword = await bcrypt.hash(body.password, 10);
-  body.password = hashedPassword;
   body.password = hashedPassword;
   await userModel.create(body);
   res.redirect("/auth/login");
@@ -37,30 +42,34 @@ const signup = async (req, res) => {
   let { name, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   // password = hashedPassword;
-  const response=await userModel.create({ name, email, password: hashedPassword });
+  const response = await userModel.create({
+    name,
+    email,
+    password: hashedPassword,
+  });
   res.json(response);
 };
 
 const signin = async (req, res) => {
   let { email, password } = req.body;
   const user=await userModel.findOne({email});
-  if(user){
-    const isMatch=await bcrypt.compare(password,user.password)
-    if(isMatch){
-      const userObj{
-      name:user.name,
-      email:user.email,
-      role:user.role,
-      }
+  if (user) {
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (isMatch) {
+      const userObj = {
+        name:user.name,
+        email:user.email,
+        role:user.role,
+      };
+      const token = jwt.sign(userObj, SECRET, { expiresIn: "1h" });
+      res.json({ ...userObj, token });
+    } else {
+      res.json({ error: "Invalid Password" });
     }
-    else{
-      res.json({error:"Invalid Password"});
-    }
+  } else {
+    res.json({ error: "Invalid User" });
   }
-  else{
-    res.json({error:'Invalid User'});
-  }
-}
+};
   
 
 const logout = (req, res) => {
