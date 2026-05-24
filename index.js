@@ -52,3 +52,5 @@ const startServer = async () => {
 };
 
 startServer();
+
+// node index.js
