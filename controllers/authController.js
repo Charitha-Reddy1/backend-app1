@@ -1,14 +1,10 @@
 import userModel from "../models/userModel.js";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken"
-
-const SECRET="mysecret"
-
+const SECRET = "mysecret"
 const login = async (req, res) => {
   res.render("auth/login");
 };
-
-
 const validateUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await userModel.findOne({ email, role: "admin" });
@@ -24,8 +20,6 @@ const validateUser = async (req, res) => {
     res.redirect("/auth/login");
   }
 };
-
-
 const register = async (req, res) => {
   res.render("auth/register");
 };
@@ -39,7 +33,7 @@ const registerUser = async (req, res) => {
 };
 
 const signup = async (req, res) => {
-  let { name, email, password } = req.body;
+  const { name, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   // password = hashedPassword;
   const response = await userModel.create({
@@ -51,8 +45,8 @@ const signup = async (req, res) => {
 };
 
 const signin = async (req, res) => {
-  let { email, password } = req.body;
-  const user=await userModel.findOne({email});
+  const { email, password } = req.body;
+  const user = await userModel.findOne({ email });
   if (user) {
     const isMatch = await bcrypt.compare(password, user.password);
     if (isMatch) {
@@ -70,7 +64,6 @@ const signin = async (req, res) => {
     res.json({ error: "Invalid User" });
   }
 };
-  
 
 const logout = (req, res) => {
   req.session.destroy();
@@ -78,4 +71,4 @@ const logout = (req, res) => {
   res.render("auth/login");
 };
 
-export { login, validateUser, register, registerUser, logout ,signup,signin};
+export { login, validateUser, register, registerUser, logout, signup, signin }; 
