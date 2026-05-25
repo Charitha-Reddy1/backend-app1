@@ -4,21 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <link rel="stylesheet" href="/css/products.css">
 </head>
 <body>
-    <h2>Products Admin Page</h2>
-    <a href="/products/add">Add Product</a>
-    <ol>
+    <div class="products-container">
+
+    <h2 class="products-title">
+        Products Admin Page
+    </h2>
+
+    <a
+      href="/products/add"
+      class="add-btn"
+    >
+      Add Product
+    </a>
+
+    <ol class="products-list">
+
     <% products.forEach(product => { %>
-        <li><%= product.name %>-
-            <%=product.desc %>-
-            <%= product.price %>-
-            <%= product.imageUrl %>-
-            <%= product.rating %>-
-            <a href="/products/<%= product._id %>/edit">Edit</a>-
-            <a href="/products/<%= product._id %>/delete">Delete</a>
+
+        <li class="product-item">
+
+            <%= product.name %> -
+            <%= product.desc %> -
+            ₹<%= product.price %> -
+            <%= product.imageUrl %> -
+            ⭐ <%= product.rating %>
+
+            <button
+                class="edit-btn"
+                onclick="location.href='/products/<%= product._id %>/edit'"
+                >
+                Edit
+                </button>
+
+                <button
+                class="delete-btn"
+                onclick="location.href='/products/<%= product._id %>/delete'"
+                >
+                Delete
+                </button>
+
         </li>
+
     <% }) %>
+
     </ol>
+
+</div>
 </body>
 </html>

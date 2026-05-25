@@ -1,0 +1,104 @@
+.products-container {
+
+  max-width: 1000px;
+
+  margin: 40px auto;
+
+  padding: 20px;
+}
+
+.products-title {
+
+  text-align: center;
+
+  color: #1e293b;
+
+  margin-bottom: 25px;
+}
+
+.add-btn {
+
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+.products-list {
+
+  padding: 0;
+}
+
+.product-item {
+
+  list-style: none;
+
+  background: white;
+
+  margin-bottom: 15px;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+
+  border: none;
+
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.edit-btn {
+
+  background: #22c55e;
+}
+
+.edit-btn:hover {
+
+  background: #16a34a;
+}
+
+.delete-btn {
+
+  background: #ef4444;
+}
+
+.delete-btn:hover {
+
+  background: #dc2626;
+}

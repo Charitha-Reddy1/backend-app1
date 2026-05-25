@@ -9,30 +9,165 @@
     padding:10px
 }
 
-.header li{
-    display: inline-block;
-    padding: 5px;
-    font-size: 20px;
-}
-.footer{
-    background-color: silver;
-    padding: 5px;
-}
-.row {
-    display: flex;
-    /* justify-content: space-around; */
-    flex-wrap: wrap;
+.header h1{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
 }
 
+.header img{
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:3px;
+}
+
+/* NAVBAR */
+
+.header ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    list-style:none;
+}
+
+.header li{
+
+    display:inline-block;
+}
+
+.header li a{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+/* BUTTON COLORS */
+
+.header li:nth-child(1) a{
+
+    background:#2563eb;
+}
+
+.header li:nth-child(1) a:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+}
+
+.header li:nth-child(2) a{
+
+    background:#0ea5e9;
+}
+
+.header li:nth-child(2) a:hover{
+
+    background:#0284c7;
+
+    transform:translateY(-2px);
+}
+
+.header li:nth-child(3) a{
+
+    background:#22c55e;
+}
+
+.header li:nth-child(3) a:hover{
+
+    background:#16a34a;
+
+    transform:translateY(-2px);
+}
+
+.header li:nth-child(4) a{
+
+    background:#ef4444;
+}
+
+.header li:nth-child(4) a:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer{
+
+    background:#e5e7eb;
+
+    text-align:center;
+
+    padding:14px;
+
+    font-size:15px;
+
+    margin-top:30px;
+
+    color:#1e293b;
+}
+
+/* PRODUCT ROW */
+
+.row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:20px;
+
+    padding:25px;
+}
+
+/* PRODUCT BOX */
 
 .box{
 
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: white;
-    width: 320px;
-    height: 340px;   /* fixed box height */
+    background:white;
 
+    width:320px;
+
+    min-height:360px;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+}
+
+.box:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.15);
 }

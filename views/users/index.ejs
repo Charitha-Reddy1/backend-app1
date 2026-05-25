@@ -3,21 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Users</title>
+    <link rel="stylesheet" href="/css/users.css">
 </head>
 <body>
-    <h2>Users Admin Page</h2>
-    <a href="/users/add">Add User</a>
-    <ol>
-    <% users.forEach(user => { %>
-        <li><%= user.name %>-
-            <%= user.email %>-
-            <%= user.password %>-
-            <%= user.role %>-
-            <a href="/users/<%= user._id %>/edit">Edit</a>-
-            <a href="/users/<%= user._id %>/delete">Delete</a>
-        </li>
-    <% }) %>
-    </ol>
+    <div class="users-container">
+
+  <h2 class="users-title">
+    Users Admin Page
+  </h2>
+
+  <a
+    href="/users/add"
+    class="add-btn"
+  >
+    Add User
+  </a>
+
+  <ol class="users-list">
+
+  <% users.forEach(user => { %>
+
+    <li class="user-item">
+
+      <%= user.name %> -
+      <%= user.email %> -
+      <%= user.password %> -
+      <%= user.role %>
+
+      <button
+        class="edit-btn"
+        onclick="location.href='/users/<%= user._id %>/edit'"
+      >
+        Edit
+      </button>
+
+      <button
+        class="delete-btn"
+        onclick="location.href='/users/<%= user._id %>/delete'"
+      >
+        Delete
+      </button>
+
+    </li>
+
+  <% }) %>
+
+  </ol>
+
+</div>
 </body>
 </html>

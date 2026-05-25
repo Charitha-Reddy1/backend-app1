@@ -3,16 +3,148 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Add User</title>
+    <style>
+
+.add-user-container {
+
+  max-width: 420px;
+
+  margin: 50px auto;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 14px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.add-user-title {
+
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  color: #1e293b;
+
+  font-size: 28px;
+}
+
+.add-user-form input {
+
+  width: 100%;
+
+  padding: 12px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.add-user-form input:focus {
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 5px rgba(37,99,235,0.3);
+}
+
+.add-user-form button {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.add-user-form button:hover {
+
+  background: #1d4ed8;
+}
+
+</style>
   </head>
   <body>
-    <h2>Add User Form</h2>
-    <form action="/users/add" method="POST">
-      <p><input type="text" name="name" placeholder="Name" /></p>
-      <p><input type="text" name="email" placeholder="Email" /></p>
-      <p><input type="password" name="password" placeholder="Password" /></p>
-      <p><input type="text" name="role" placeholder="Role" /></p>
-      <p><button>Submit</button></p>
+
+  <div class="add-user-container">
+
+    <h2 class="add-user-title">
+      Add User Form
+    </h2>
+
+    <form
+      action="/users/add"
+      method="POST"
+      class="add-user-form"
+    >
+
+      <p>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+        />
+      </p>
+
+      <p>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+        />
+      </p>
+
+      <p>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+      </p>
+
+      <p>
+        <input
+          type="text"
+          name="role"
+          placeholder="Role"
+        />
+      </p>
+
+      <p>
+        <button>
+          Submit
+        </button>
+      </p>
+
     </form>
-  </body>
+
+  </div>
+
+</body>
 </html>
